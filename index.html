@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신창노씨(新昌盧氏) 조상 인물록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe2; --paper2:#ece3cf; --ink:#1f1b16; --ink2:#4a4237;
+    --muted:#7a6f5f; --seal:#a8322a; --line:#cdbf9f; --gold:#9a7b3c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Serif KR',serif;color:var(--ink);background:var(--paper);
+    background-image:radial-gradient(rgba(120,90,40,.05) 1px,transparent 1px);
+    background-size:6px 6px;line-height:1.8;
+  }
+  a{color:var(--seal)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(245,239,226,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;gap:22px;align-items:center;height:54px;overflow-x:auto;white-space:nowrap}
+  nav .brand{font-weight:900;letter-spacing:.08em;margin-right:auto}
+  nav a{font-family:'Noto Sans KR',sans-serif;font-size:14px;color:var(--ink2);text-decoration:none}
+  nav a:hover{color:var(--seal)}
+
+  /* hero */
+  header.hero{padding:96px 0 80px;text-align:center;border-bottom:1px solid var(--line);position:relative}
+  .hanja{font-size:clamp(56px,11vw,120px);font-weight:900;letter-spacing:.18em;line-height:1.1}
+  .hero h1{font-size:clamp(22px,3.4vw,32px);font-weight:700;margin-top:18px;letter-spacing:.1em}
+  .hero p.lead{max-width:640px;margin:22px auto 0;color:var(--ink2);font-size:17px}
+  .seal{display:inline-block;margin-top:34px;border:3px solid var(--seal);color:var(--seal);
+        padding:10px 14px;font-weight:900;font-size:20px;letter-spacing:.2em;transform:rotate(-4deg);border-radius:4px}
+  .stats{display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap}
+  .stat b{display:block;font-size:30px;font-weight:900;color:var(--seal)}
+  .stat span{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted)}
+
+  section{padding:80px 0;border-bottom:1px solid var(--line)}
+  .sec-title{display:flex;align-items:baseline;gap:14px;margin-bottom:34px}
+  .sec-title h2{font-size:28px;font-weight:900;letter-spacing:.06em}
+  .sec-title small{font-size:15px;color:var(--muted);letter-spacing:.2em}
+  .sec-title::after{content:"";flex:1;height:1px;background:var(--line);margin-left:8px;transform:translateY(-6px)}
+  p.body{color:var(--ink2);font-size:16.5px;max-width:820px}
+  p.body + p.body{margin-top:14px}
+
+  /* lineage */
+  .lineage{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:10px}
+  .node{background:#fffaf0;border:1px solid var(--line);padding:14px 22px;min-width:300px;max-width:520px;text-align:center;
+        box-shadow:0 2px 0 var(--paper2)}
+  .node .gen{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--muted);letter-spacing:.1em}
+  .node .nm{font-size:20px;font-weight:700}
+  .node .nm em{font-style:normal;color:var(--muted);font-size:16px;margin-left:6px}
+  .node .ds{font-size:14px;color:var(--ink2)}
+  .node.key{border:2px solid var(--seal);background:#fff6ee}
+  .node.key .nm{color:var(--seal)}
+  .node.pre{background:transparent;border-style:dashed}
+  .arrow{width:1px;height:28px;background:var(--ink2);position:relative}
+  .arrow.gap{background:repeating-linear-gradient(var(--ink2) 0 4px,transparent 4px 8px)}
+  .arrow.gap::after{content:"(중간 세대 공개 자료 없음)";position:absolute;left:12px;top:5px;white-space:nowrap;
+        font-family:'Noto Sans KR',sans-serif;font-size:11px;color:var(--muted)}
+  .split{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+  .split .node{min-width:240px}
+  .fork{width:290px;height:20px;border:1px solid var(--ink2);border-bottom:none;margin-top:0}
+
+  /* people */
+  .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+  .card{background:#fffaf0;border:1px solid var(--line);padding:26px 24px 22px;position:relative}
+  .card.feature{grid-column:1/-1;border:2px solid var(--seal);background:#fff6ee;padding:34px 34px 30px}
+  .card .tag{position:absolute;top:-11px;left:20px;background:var(--ink);color:var(--paper);font-family:'Noto Sans KR',sans-serif;
+             font-size:11px;padding:3px 10px;letter-spacing:.12em}
+  .card .tag.wu{background:#6b3a1f}
+  .card .tag.mun{background:#2e4a3a}
+  .card .tag.both{background:var(--seal)}
+  .card h3{font-size:22px;font-weight:900}
+  .card h3 .hj{font-weight:600;color:var(--muted);font-size:17px;margin-left:6px}
+  .card .meta{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);margin:4px 0 12px}
+  .card p{font-size:15px;color:var(--ink2)}
+  .card ul{margin:10px 0 0 18px;font-size:15px;color:var(--ink2)}
+  .card .quote{margin-top:16px;padding:14px 18px;border-left:3px solid var(--gold);background:var(--paper2);font-size:15px}
+  .feature .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:6px}
+  @media(max-width:760px){.feature .cols{grid-template-columns:1fr}}
+  .facts{font-family:'Noto Sans KR',sans-serif;font-size:14px;border-collapse:collapse;width:100%}
+  .facts td{padding:7px 0;border-bottom:1px dotted var(--line);vertical-align:top}
+  .facts td:first-child{width:76px;color:var(--muted)}
+
+  /* timeline */
+  .tl{position:relative;margin-left:8px;padding-left:34px;border-left:2px solid var(--ink2)}
+  .ev{position:relative;margin-bottom:26px}
+  .ev::before{content:"";position:absolute;left:-42px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--seal)}
+  .ev .y{font-weight:900;color:var(--seal);font-size:17px}
+  .ev .t{color:var(--ink2);font-size:15.5px}
+
+  /* places */
+  .places{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .place{border-top:4px solid var(--ink);background:#fffaf0;padding:22px 22px 18px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .place h4{font-size:19px;font-weight:900}
+  .place .loc{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);margin-bottom:8px}
+  .place p{font-size:15px;color:var(--ink2)}
+
+  /* books */
+  table.books{width:100%;border-collapse:collapse;font-size:15px;background:#fffaf0}
+  table.books th,table.books td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+  table.books th{background:var(--paper2);font-weight:700;font-size:14px}
+  .note{margin-top:26px;padding:18px 22px;background:var(--paper2);border:1px dashed var(--gold);font-family:'Noto Sans KR',sans-serif;font-size:14px;color:var(--ink2)}
+  .note b{color:var(--ink)}
+  .note li{margin-left:18px}
+
+  footer{padding:50px 0 70px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted)}
+  footer ol{margin:12px 0 0 18px}
+  footer li{margin-bottom:4px;word-break:break-all}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">新昌盧氏</span>
+  <a href="#origin">가문의 뿌리</a>
+  <a href="#lineage">계보</a>
+  <a href="#people">인물</a>
+  <a href="#timeline">연표</a>
+  <a href="#places">세거지</a>
+  <a href="#books">족보·자료</a>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hanja">新昌盧氏</div>
+    <h1>신창노씨 조상 인물록</h1>
+    <p class="lead">고려의 장군에서 조선의 청렴한 현감, 임진왜란의 의병장까지.<br>문(文)과 무(武)를 함께 이어 온 한 가문의 이야기</p>
+    <div class="seal">文武兼全</div>
+    <div class="stats">
+      <div class="stat"><b>新昌</b><span>본관 · 충남 아산 신창면</span></div>
+      <div class="stat"><b>盧智儒</b><span>시조 · 신창군(新昌君)</span></div>
+      <div class="stat"><b>530년+</b><span>대전 문지동 세거(~1988)</span></div>
+      <div class="stat"><b>2,152명</b><span>2015 인구조사</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="origin"><div class="wrap">
+  <div class="sec-title"><h2>가문의 뿌리</h2><small>由來</small></div>
+  <p class="body">신창노씨는 당나라 한림학사 <b>노수(盧穗)</b>의 둘째 아들 <b>노오(盧塢)</b>가 신라로 건너와 교하백(交河伯)에 봉해진 데서 비롯된 교하노씨에서 갈라져 나왔습니다. 교하노씨의 일세조 <b>노강필(盧康弼)</b>은 고려 태조를 도와 통합삼한개국공신이 되고 태자태사·선성부원군에 올랐습니다.</p>
+  <p class="body">노강필의 증손이자 문하시중·평장사를 지낸 의정공 <b>노영순(盧永醇)</b>의 둘째 아들 <b>노지유(盧智儒)</b>가 검교장군으로 무공을 세워 판도판서에 오르고 <b>신창군(新昌君)</b>에 봉해지자, 후손들이 교하노씨에서 분관하여 그를 일세조로, 신창을 본관으로 삼았습니다.</p>
+  <p class="body">본관 신창은 백제의 굴직현이 신라 때 기량현, 고려 초 신창현이 된 곳으로, 지금의 충청남도 아산시 신창면입니다.</p>
+</div></section>
+
+<section id="lineage"><div class="wrap">
+  <div class="sec-title"><h2>계보</h2><small>世系</small></div>
+  <div class="lineage">
+    <div class="node pre"><div class="gen">교하노씨 일세조</div><div class="nm">노강필<em>盧康弼</em></div><div class="ds">통합삼한개국공신 · 태자태사 · 선성부원군</div></div>
+    <div class="arrow"></div>
+    <div class="node pre"><div class="gen">교하노씨</div><div class="nm">노영순<em>盧永醇</em></div><div class="ds">문하시중 평장사 · 의정공</div></div>
+    <div class="arrow"></div>
+    <div class="node key"><div class="gen">1세 · 시조</div><div class="nm">노지유<em>盧智儒</em></div><div class="ds">검교장군 · 판도판서 · 신창군</div></div>
+    <div class="arrow"></div>
+    <div class="node"><div class="gen">2세</div><div class="nm">노후<em>盧珝</em></div><div class="ds">고려 병부상서</div></div>
+    <div class="arrow gap"></div>
+    <div class="node"><div class="gen">4세 (노후의 손자)</div><div class="nm">노순<em>盧純</em></div><div class="ds">사마시 합격 후 벼슬을 버리고 학문에 전념</div></div>
+    <div class="arrow gap"></div>
+    <div class="node"><div class="gen">6세 · 회덕 입향조</div><div class="nm">노규부<em>盧赳夫</em></div><div class="ds">어모장군 · 훈련원 습독관</div></div>
+    <div class="arrow"></div>
+    <div class="node"><div class="gen">7세</div><div class="nm">노미수<em>盧眉壽</em></div><div class="ds">건공장군 · 충무위 부사직</div></div>
+    <div class="arrow"></div>
+    <div class="fork"></div>
+    <div class="split">
+      <div class="node"><div class="gen">8세 · 형</div><div class="nm">노식<em>盧軾</em></div><div class="ds">부장공 · 최초의 신창노씨 족보 편찬</div></div>
+      <div class="node key"><div class="gen">8세 · 아우</div><div class="nm">노집<em>盧輯</em></div><div class="ds">낙헌공(樂軒公) · 단성현감</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="people"><div class="wrap">
+  <div class="sec-title"><h2>인물</h2><small>人物</small></div>
+  <div class="people">
+
+    <div class="card feature">
+      <span class="tag both">문(文) · 청렴</span>
+      <h3>낙헌공 노집<span class="hj">樂軒公 盧輯</span></h3>
+      <div class="meta">1489(성종 20) ~ 1536(중종 31) · 자 사화(士和) · 호 낙헌(樂軒)</div>
+      <div class="cols">
+        <div>
+          <p>건공장군 노미수와 남원현감 유석번의 딸 유씨 부인 사이에서 둘째 아들로 태어났습니다. 어려서부터 영리하고, 자라면서 언행을 삼가고 무겁게 했습니다.</p>
+          <p style="margin-top:10px">38세에 처음 벼슬길에 올라 의식을 관장하는 통례원의 인의가 되었고, 의령고 주부·선공감 주부를 거쳐 <b>단성현감</b>이 되었습니다. 마침 영남에 큰 흉년이 들었으나 백성을 구제해 굶주림이 없게 하니 온 고을이 그를 칭송했습니다.</p>
+          <p style="margin-top:10px">관청 화재로 파직되었다가 곧 조지서 사지로 복직했지만, 벼슬을 버리고 고향 회덕으로 돌아갔습니다. 아버지 시묘를 하던 자리에 정자를 지어 형제간의 화목을 다졌고, 그 뜻을 「구곡정기」(1534)에 남겼습니다.</p>
+          <div class="quote">"벼슬은 그 덕의 크기에 미치지 못했다." 당대 사람들의 평가. 나라에 큰 의례가 있으면 통례원에서 반드시 그를 추천했을 만큼 예(禮)에 밝았습니다.</div>
+        </div>
+        <div>
+          <table class="facts">
+            <tr><td>관직</td><td>통례원 인의, 의령고 주부, 선공감 주부, 단성현감, 조지서 사지</td></tr>
+            <tr><td>성품</td><td>밖으로는 부드럽고 안으로는 강함. 부모를 섬김에 어긋남이 없고 벼슬에서 청렴했음</td></tr>
+            <tr><td>기록</td><td>「회덕향안」에 실린 노씨 인물 가운데 가장 이른 시기의 인물</td></tr>
+            <tr><td>묘갈명</td><td>규암 송인수(圭菴 宋麟壽) 찬</td></tr>
+            <tr><td>비음기</td><td>심석 송병순(心石 宋秉珣) 찬 「낙헌공비음기」</td></tr>
+            <tr><td>별세</td><td>1536년 12월, 병을 치료하러 올라간 서울에서</td></tr>
+            <tr><td>묘소</td><td>대전광역시 유성구 문지동</td></tr>
+            <tr><td>후손</td><td>대전, 경남 합천군 삼가면 등</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag wu">무(武) · 시조</span>
+      <h3>노지유<span class="hj">盧智儒</span></h3>
+      <div class="meta">고려 · 신창노씨 1세</div>
+      <p>검교장군으로 나라에 무공을 세워 판도판서에 오르고 신창군에 봉해졌습니다. 홍건적의 난 때 공을 세웠다고도 전합니다. 신창노씨가 교하노씨에서 갈라져 나온 출발점입니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag mun">문(文)</span>
+      <h3>노후<span class="hj">盧珝</span></h3>
+      <div class="meta">고려 · 2세 · 시조의 아들</div>
+      <p>고려 조정에서 병부상서를 지냈습니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag mun">문(文) · 학문</span>
+      <h3>노순<span class="hj">盧純</span></h3>
+      <div class="meta">고려 · 4세 · 노후의 손자</div>
+      <p>사마시에 합격했으나 벼슬에 뜻을 두지 않고 고향으로 돌아가 학문에만 힘쓰며 저술로 일생을 마쳤습니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag wu">무(武) · 입향조</span>
+      <h3>노규부<span class="hj">盧赳夫</span></h3>
+      <div class="meta">조선 성종 대 · 6세</div>
+      <p>어모장군, 훈련원 습독관. 성종 때 회덕(지금의 대전)으로 옮겨 와 신창노씨 회덕 입향조가 되었습니다. 묘소가 있는 문지동 아래에서 후손들이 530여 년을 살았습니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag wu">무(武)</span>
+      <h3>노미수<span class="hj">盧眉壽</span></h3>
+      <div class="meta">조선 · 7세 · 노집의 아버지</div>
+      <p>건공장군, 충무위 부사직. 용맹한 장수(勇將)로 기록되어 있습니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag both">문무(文武)</span>
+      <h3>부장공 노식<span class="hj">部將公 盧軾</span></h3>
+      <div class="meta">조선 · 8세 · 노집의 형</div>
+      <p>문무에 두루 현달했습니다. 신창노씨의 족보를 처음으로 펴내 가문의 역사를 남긴 인물입니다.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag both">문무(文武) · 의병장</span>
+      <h3>매와 노순<span class="hj">梅窩 盧錞</span></h3>
+      <div class="meta">1551(명종 6) ~ ? · 자 자협(子協) · 초계 출신</div>
+      <p>남명 조식의 문인입니다. 임진왜란이 일어나자 1592년 삼가 정금당에서 박사제·허자대 등과 창의해 800~900명을 모았고, 곽재우 의병에 합류해 군량 조달을 맡았습니다.</p>
+      <ul><li>1595년 영변부사 제수</li><li>영변 상음서원, 삼가 구연서원 제향</li></ul>
+    </div>
+
+    <div class="card">
+      <span class="tag mun">문(文)</span>
+      <h3>노정<span class="hj">盧鋌</span></h3>
+      <div class="meta">조선</div>
+      <p>사재감정을 지냈습니다. 용양위 부호군 노천익(盧天翼), 참의 노희창(盧喜昌)과 함께 가통을 이었다고 전합니다.</p>
+    </div>
+
+  </div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+  <div class="sec-title"><h2>연표</h2><small>年表</small></div>
+  <div class="tl">
+    <div class="ev"><div class="y">고려 초</div><div class="t">노강필, 고려 개국에 공을 세워 통합삼한개국공신 · 선성부원군 (교하노씨)</div></div>
+    <div class="ev"><div class="y">고려</div><div class="t">노지유, 검교장군으로 무공 · 판도판서 · 신창군 봉군 → 신창노씨 분관</div></div>
+    <div class="ev"><div class="y">성종 대 (15세기 후반)</div><div class="t">6세 노규부, 회덕으로 이주 · 대전 문지동 세거 시작</div></div>
+    <div class="ev"><div class="y">1489</div><div class="t">낙헌공 노집 출생</div></div>
+    <div class="ev"><div class="y">1526</div><div class="t">노집, 38세에 통례원 인의로 첫 벼슬</div></div>
+    <div class="ev"><div class="y">1526 ~ 1536 사이</div><div class="t">노집, 단성현감으로 영남 흉년 구휼</div></div>
+    <div class="ev"><div class="y">1534</div><div class="t">노집, 「구곡정기」 지음</div></div>
+    <div class="ev"><div class="y">1536</div><div class="t">노집, 12월 서울에서 별세 · 문지동에 묻힘</div></div>
+    <div class="ev"><div class="y">1551</div><div class="t">매와 노순(盧錞) 출생</div></div>
+    <div class="ev"><div class="y">1592</div><div class="t">임진왜란 · 노순, 삼가에서 창의하여 곽재우 의병 군량 담당</div></div>
+    <div class="ev"><div class="y">1595</div><div class="t">노순, 영변부사 제수</div></div>
+    <div class="ev"><div class="y">1934</div><div class="t">『신창노씨세보』 3권 간행 (노규석 편, 문산제)</div></div>
+    <div class="ev"><div class="y">1988</div><div class="t">대덕연구단지 조성으로 문지동 주민 전체 이주</div></div>
+  </div>
+</div></section>
+
+<section id="places"><div class="wrap">
+  <div class="sec-title"><h2>세거지</h2><small>世居地</small></div>
+  <div class="places">
+    <div class="place">
+      <h4>본관 · 신창</h4>
+      <div class="loc">충청남도 아산시 신창면</div>
+      <p>백제 굴직현 → 신라 기량현 → 고려 신창현. 시조 노지유가 봉해진 땅입니다.</p>
+    </div>
+    <div class="place">
+      <h4>회덕 · 문지동</h4>
+      <div class="loc">대전광역시 유성구 문지동</div>
+      <p>노규부 이래 530여 년 동안 이어진 세거지로, 노규부와 노집의 묘소가 있습니다. 1988년 대덕연구단지 조성으로 주민 전체가 이주했습니다. 노씨는 우암 송시열이 「회덕향안」 서문에서 꼽은 회덕의 이름난 13개 성씨 중 하나입니다.</p>
+    </div>
+    <div class="place">
+      <h4>삼가</h4>
+      <div class="loc">경상남도 합천군 삼가면</div>
+      <p>낙헌공 노집의 후손들이 세거하는 곳이고, 임진왜란 때 노순이 의병을 일으키고 훗날 구연서원에 제향된 고장이기도 합니다.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="books"><div class="wrap">
+  <div class="sec-title"><h2>족보와 자료</h2><small>譜牒</small></div>
+  <table class="books">
+    <tr><th>자료</th><th>내용</th><th>소장 · 위치</th></tr>
+    <tr><td>『신창노씨기묘세보』<br>新昌盧氏己卯世譜</td><td>시조 노지유의 유래를 전하는 세보</td><td>소장처 미확인</td></tr>
+    <tr><td>『신창노씨세보』 3권<br>新昌盧氏世譜</td><td>1934년 간행, 노규석 편, 문산제 발행</td><td>유타계보협회(FamilySearch) 소장</td></tr>
+    <tr><td>「회덕향안」</td><td>회덕 사족 명부. 임자본 향안에 노씨 향원 10인 등재</td><td>소장처 미확인</td></tr>
+    <tr><td>낙헌공 묘갈명 · 비음기</td><td>송인수 찬 묘갈명, 송병순 찬 「낙헌공비음기」</td><td>대전 문지동 묘소</td></tr>
+    <tr><td>뿌리공원 조형물</td><td>160번 「합일(合一)」, 조각가 김진기. 투구는 선조의 무(武)를 상징</td><td>대전 중구 뿌리공원</td></tr>
+  </table>
+  <div class="note">
+    <b>참고할 점</b>
+    <ul>
+      <li>시조 이름은 대부분 자료가 '노지유(盧智儒)'로 쓰지만, 위키백과 등 일부는 '노정(盧挺)'으로 적고 있습니다.</li>
+      <li>3세·5세와 9세 이후의 세계는 공개 자료로 확인되지 않아 계보도에 점선으로 표시했습니다. 정확한 계보는 세보 원본이나 문중 족보로 확인해야 합니다.</li>
+      <li>노지유의 활동 시기는 '공민왕 때', '홍건적의 난 때' 등으로 전해집니다.</li>
+    </ul>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <b>출처</b>
+  <ol>
+    <li>대덕문화원, 「대덕의 인물: 노집(盧輯)」 ddcc.or.kr</li>
+    <li>뿌리공원전국문중협의회, 「신창노씨 조형물 및 유래문」 fakpp.kr</li>
+    <li>밥상뉴스(BSN), 「[가문의 뿌리] 문무의 명문 '신창 노씨'」 2023.08.11</li>
+    <li>한국민족문화대백과사전, 「노순(盧錞)」 encykorea.aks.ac.kr</li>
+    <li>성씨정보(sungssi.com), 「신창노씨시조 노지유, 신창노씨조상인물」</li>
+    <li>청남 권영한, 「신창노씨」 (출전: 한민족대성보)</li>
+    <li>한국족보정보(gok.kr), 신창노씨 가문 정보</li>
+    <li>중부일보, 「교하 노씨 고려 개국공신 후예들」 2016.07.11</li>
+  </ol>
+</div></footer>
+
+</body>
+</html>
